@@ -6,10 +6,10 @@
         <div class="panel-heading">
           <h3 class="panel-title">Login to your Account</h3>
         </div>
-            <form class="login-form" action="/auth/login" method="post" accept-charset="utf-8">
+            <form class="login-form" action="/login" method="post" accept-charset="utf-8">
               <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" name="identity" id="email" placeholder="Email">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
               </div>
 
               <div class="form-group">

@@ -13,13 +13,18 @@ class Dashadmin extends CI_Controller {
 
 	public function home()
 	{	
-		$this->load->model('clients_model');
-		$clients = $this->clients_model->get_all_clients();
-		
-		$this->data['clients'] = $clients;
+		//check if user is logged in
+		if(!$this->ion_auth->logged_in()){
+			redirect('login', 'refresh');
+		}else{
+			$this->load->model('clients_model');
+			$clients = $this->clients_model->get_all_clients();
+			
+			$this->data['clients'] = $clients;
 
-		$this->view_all_accs($this->data);
-	}
+			$this->view_all_accs($this->data);
+		}
+	}//close home
 
 	public function view_all_accs($d)
 	{	
@@ -113,7 +118,7 @@ class Dashadmin extends CI_Controller {
 				$plan, $acc_status, $created_on);
 
 			//add an invoice
-			$paid_by = 1;
+			$paid_by = 1; //#fix get id of logged user
 			$date_paid  = "2015-09-19 12:59:44";
 			$this->add_invoice($client_id, $domain, $plan, $amount, $paid_by, $date_paid);
 			//redirect can't work with ajax call

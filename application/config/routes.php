@@ -4,9 +4,14 @@
 /**
 * client dashboard 
 **/
-$route['default_controller'] = "dashclient";
-$route['support'] = "dash/support";
+$route['default_controller'] = "login";
 $route['404_override'] = '';
+
+/**
+*Login
+*/
+$route['login'] = 'login/user_login';
+$route['logout'] = 'login/logout';
 
 /**
 *Admin interface 
@@ -22,10 +27,9 @@ $route['admin/invoice'] = 'dashadmin/invoice';
 $route['admin/client_mgt/(:any)/(:num)'] = 'dashadmin/client_mgt';
 
 /**
-*Login
+* Client interface
 */
-$route['login'] = 'dashclient/login';
-$route['logout'] = 'dashclient/logout';
+$route['client'] = "dashclient/home";
 
 /**
 *Authentication

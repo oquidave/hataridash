@@ -10,7 +10,7 @@ class Dashclient extends CI_Controller {
 	{
 		
 	}
-	public function index()
+	public function home()
 	{
 		if(!$this->ion_auth->logged_in()){
 			redirect('login', 'refresh');
@@ -47,7 +47,7 @@ class Dashclient extends CI_Controller {
 			$this->client_details($this->data);
 		}
 		
-	} 
+	} //close home
 
 	public function client_details($d)
 	{
@@ -64,61 +64,6 @@ class Dashclient extends CI_Controller {
 		$this->load->view('client/support');
 		$this->load->view('includes/footer');
 	}
-
-	public function login()
-	{
-		if($this->ion_auth->logged_in()){
-			//logout first 
-			$this->logout();
-		}
-		$this->load->view('includes/header');
-		$this->load->view('includes/nav_site');
-		$this->load->view('client/dash_login');
-		$this->load->view('includes/footer');
-	}
-
-	public function logout()
-	{
-		$this->ion_auth->logout();
-		redirect('login', 'refresh');
-	}
-
-	public function forgot_password()
-	{
-		if (isset($_POST) && !empty($_POST)){
-			//run the forgotten password method to email an activation code to the user
-			$email = $this->input->post('email');
-			$forgotten = $this->ion_auth->forgotten_password($email);
-			if ($forgotten) { //if there were no errors
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				$this->data['email'] = $email;
-				$this->forgot_password_success($this->data);
-			}else {
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
-				$this->data['message'] = $this->ion_auth->errors();
-				$this->forgot_password_view($this->data);
-			}
-		}else{
-			$this->data['message'] = false;
-			$this->forgot_password_view($this->data);
-		}
-	}
-
-	public function forgot_password_view($d){
-		$this->load->view('includes/header');
-		$this->load->view('includes/nav_site');
-		$this->load->view('client/forgot_password', $d);
-		$this->load->view('includes/footer');
-	}
-
-	public function forgot_password_success($d)
-	{
-		$this->load->view('includes/header');
-		$this->load->view('includes/nav_site');
-		$this->load->view('client/forgot_pw_success', $d);
-		$this->load->view('includes/footer');
-	}
-
 	
 	
 }//close class
