@@ -12,6 +12,7 @@ $route['404_override'] = '';
 */
 $route['login'] = 'login/user_login';
 $route['logout'] = 'login/logout';
+$route['forgot_password'] = 'login/forgot_password';
 
 /**
 *Admin interface 
@@ -42,7 +43,6 @@ $route['u/users'] = 'auth/index';
 $route['u/create'] = 'auth/create_user';
 $route['u/delete/:num'] = 'auth/delete_user';
 $route['u/edit/:num'] = 'auth/edit_user';
-$route['u/forgot_password'] = 'dashclient/forgot_password';
 
 
 /* End of file routes.php */

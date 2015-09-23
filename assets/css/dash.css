@@ -40,7 +40,7 @@ tr.tb-header {
   background-color: #f05f66;
 }
 
-#profile, 
+/*#profile, */
 #account, 
 #billing {
   width: 50%;
@@ -58,6 +58,15 @@ form.login-form {
 }
 .contact-panel{
   margin-top: 65px;
+}
+
+/************************
+*client profile editing 
+*************************/
+
+form.client-edit-profile,
+form.client-edit-pw {
+  margin: 10px 20px;
 }
 
 /**************************

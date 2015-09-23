@@ -6,7 +6,7 @@
         <div class="panel-heading">
           <h3 class="panel-title">Forgot password</h3>
         </div>
-            <form class="login-form" action="/u/forgot_password" method="post" accept-charset="utf-8">
+            <form class="login-form" action="/forgot_password" method="post" accept-charset="utf-8">
               <div class="form-group forgot_password_error" style="display: <?php echo ($message)?'display':'none'; ?>" >
                 <span ><?php echo $message; ?> </span>
               </div>

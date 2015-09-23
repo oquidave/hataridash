@@ -4,8 +4,8 @@
 		<!-- menu -->
 		<div class="col-12">
 			<ul class="nav nav-pills">
-			  <li><a href="#profile" data-toggle="tab">Profile</a></li>
-			  <li class="active"><a href="#account" data-toggle="tab">Account</a></li>
+			  <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+			  <li><a href="#account" data-toggle="tab">Account</a></li>
 			  <li><a href="#billing" data-toggle="tab">Billing</a></li>
 			</ul>
 			
@@ -14,35 +14,66 @@
 			<div class="tab-content">
 
 				<!-- profile tab -->
-				<div class="tab-pane" id="profile" >
-					<h2>Edit your profile</h2>
-					<form >
-					  <div class="form-group">
-					    <label for="names">Full Names</label>
-					    <input type="text" class="form-control" name="full_names" id="names" 
-					    placeholder="<?php echo $full_names; ?>" >
-					  </div>
-					  <div class="form-group">
-					    <label for="phone">Phone</label>
-					    <input type="email" class="form-control" name="phone" id="phone" 
-					    placeholder=<?php echo $phone; ?> >
-					  </div>
-					  <div class="form-group">
-					    <label for="email">Email</label>
-					    <input type="email" class="form-control" name="email" id="email" 
-					    placeholder=<?php echo $email; ?> >
-					  </div>
-					  <div class="form-group">
-					    <label for="password">Password</label>
-					    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-					  </div>
-					  
-					  <button type="submit" class="btn btn-primary">Save changes</button>
-					</form>
-				</div> <!-- close profile tab -->
+				<div class="row tab-pane active" id="profile">
+					<h2>Edit your Account details</h2>
+					<div class="col-md-6">
+						<!-- edit basic profile user info -->
+						<div class="panel panel-default">
+					        <div class="panel-heading">
+					          <h3 class="panel-title">Change your profile details</h3>
+					        </div>
+							<form class="client-edit-profile" >
+							  <div class="form-group">
+							    <label for="names">Full Names</label>
+							    <input type="text" class="form-control" name="full_names" id="names" 
+							    placeholder="<?php echo $full_names; ?>" >
+							  </div>
+							  <div class="form-group">
+							    <label for="phone">Phone</label>
+							    <input type="email" class="form-control" name="phone" id="phone" 
+							    placeholder=<?php echo $phone; ?> >
+							  </div>
+							  <div class="form-group">
+							    <label for="email">Email</label>
+							    <input type="email" class="form-control" name="email" id="email" 
+							    placeholder=<?php echo $email; ?> >
+							  </div>
+							  <div class="form-group">
+							    <label for="email">Company</label>
+							    <input type="email" class="form-control" name="company" id="company" 
+							    placeholder=<?php echo $company; ?> >
+							  </div>
+							  <button type="submit" class="btn btn-primary">Save changes</button>
+							</form>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="panel panel-default">
+					        <div class="panel-heading">
+					          <h3 class="panel-title">Change your password</h3>
+					        </div>
+							<form class="client-edit-pw" >
+							  <div class="form-group">
+							    <label for="password">Old password</label>
+							    <input type="password" class="form-control" name="old_pw" id="password" placeholder="Old Password">
+							  </div>
+							  <div class="form-group">
+							    <label for="password">New password</label>
+							    <input type="password" class="form-control" name="new_pw1" id="password" placeholder="New Password">
+							  </div>
+							  <div class="form-group">
+							    <label for="password">Confirm new password</label>
+							    <input type="password" class="form-control" name="new_pw2" id="password" placeholder="Confirm new Password">
+							  </div>
+							  <button type="submit" class="btn btn-primary">Update password</button>
+							</form>
+						</div>
+					</div>
+				</div><!-- close profile tab-pane -->
 				
 				<!-- account details tab -->
-				<div class="tab-pane active" id="account" >
+				<div class="tab-pane" id="account" >
 					<h2>View your Account details</h2>
 						<div class="panel panel-default panel-tweak">
 						  <div class="panel-heading">

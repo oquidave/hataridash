@@ -4,7 +4,7 @@
     <div class="col-md-6 col-md-offset-3">
       <div class="panel panel-default login-panel">
         <div class="panel-heading">
-          <h3 class="panel-title">Login to your Account</h3>
+          <h3 class="panel-title">Login to your HatariCloud Account</h3>
         </div>
             <form class="login-form" action="/login" method="post" accept-charset="utf-8">
               <div class="form-group">
@@ -23,7 +23,7 @@
               </div>
 
               <button type="submit" class="btn btn-primary">Login</button>
-              <a href="/u/forgot_password" class="btn link">Forgot password</a>
+              <a href="/forgot_password" class="btn link">Forgot password</a>
             </form>
       </div><!-- close panel-->
     </div>
