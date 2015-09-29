@@ -64,18 +64,14 @@ form.login-form {
 *client profile editing 
 *************************/
 
-form.client-edit-profile,
-form.client-edit-pw {
+form.edit-client-user-profile,
+form.client-edit-user-pw {
   margin: 10px 20px;
 }
 
 /**************************
 *admin styling 
 ***************************/
-
-/*h2.clients-acc-h2 {
-  padding-left: 15px;
-}*/
 
 .client-admin.thumbnail {
   width: 540px;
@@ -143,6 +139,21 @@ a.client-actions-del {
 *********************/
 .container.add_client_acc {
   margin-bottom: 100px;
+}
+
+/* add account form */
+.error_box {
+  background: #FAD3C4;
+  border: 1px solid #A75B4E;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  color: #444444;
+  display: none;
+  font-size: 13px;
+  margin: 0px 0px 15px 0px;
+  padding: 8px 8px;
+  width: 672px;
 }
 
 /*******************

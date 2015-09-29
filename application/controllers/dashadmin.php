@@ -124,6 +124,12 @@ class Dashadmin extends CI_Controller {
 			//redirect can't work with ajax call
 
 			//#Todo insert client id and user id to the clients_users table 
+			$table = "client_users";
+			$data = array('user_id' => $user_id,
+			 				'client_id' => $client_id);
+			$this->clients_model->insert_record($table, $data);
+
+			//return a json object of the the newly created client id
 			header('Content-Type: application/json');
 			echo json_encode(
 				array('client_id' => $client_id));
@@ -187,8 +193,6 @@ class Dashadmin extends CI_Controller {
 		if (isset($_POST) && !empty($_POST)){
 			//process the form
 			$client = $this->session->userdata('client');
-			echo "session data for client";
-			print_r($client);
 
 			//add an invoice
 			$client_id = $client->id;

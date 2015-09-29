@@ -11,11 +11,13 @@
 	</div>
 	
 	<!--Add Account Admin -->
-	<div class="row ">
+	<div class="row">
 		<div class="col-md-8">
 			<h2>Add Account Admin</h2>
+
+			<div class="error_box"></div>
 			
-			<form >
+			<form name="add-acc" action="#" method="POST">
 			  <div class="form-group">
 			    <label for="full_names">Full Names</label>
 			    <input type="text" name="full_names" class="form-control" id="full_names" placeholder="David Okwii">
@@ -36,8 +38,6 @@
 			    <label for="password">Password</label>
 			    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
 			  </div>
-			</form>
-
 		</div><!-- close col -->
 	</div><!--close add Account Admin -->
 
@@ -47,7 +47,7 @@
 	<div class="row">
 		<div class="col-md-8">
 			<h2>Add Account Details</h2>
-			<form >
+			
 			  <div class="form-group">
 			    <label for="domain">Domain Name</label>
 			    <input type="text" name="domain" class="form-control" id="domain" placeholder="http://www.example.com">
@@ -63,7 +63,7 @@
 			  <div class="form-group">
 			  	<input type="checkbox" name="acc_status"  id="acc_status"><label for="acc-status">Activate</label>
 			  </div>
-			 </form>
+			 
 		</div>
 	</div><!--close add Account details -->
 	
@@ -73,7 +73,7 @@
 	<div class="row">
 		<div class="col-md-8">
 			<h2>Add Account Billing</h2>
-			<form id="acc_billing">
+		
 			  <div class="form-group">
 			    <label for="amount">Amount Paid</label>
 			    <input type="text" name="amount" class="form-control" id="amount" placeholder="Enter amount paid">
@@ -82,7 +82,7 @@
 			  	<label for="date">Pick Date</label>
 			  	<input type="text" name="date" class="form-control" id="date" placeholder="Date account is created">
 			  </div>
-			</form>
+		
 		</div>
 	</div><!--close Add Account billing -->
 	
@@ -94,5 +94,8 @@
 			<button id="save_acc" class="btn btn-primary btn-block btn-lg">Save Account</button>
 		</div>
 	</div>
-
+</form>
 </div> <!-- close container -->
+
+<!-- validation JS -->
+<!-- <script src="/assets/js/validate.min.js"></script> -->

@@ -4,6 +4,9 @@
 	<!-- Bootstrap JS -->
 	<script src="/assets/js/bootstrap.min.js"></script>
 
+	<!-- validation JS -->
+	<script src="/assets/js/validate.min.js"></script>
+
 	<!-- Custom JS -->
 	<script src="/assets/js/dash.js"></script>
 

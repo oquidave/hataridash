@@ -31,6 +31,9 @@ $route['admin/client_mgt/(:any)/(:num)'] = 'dashadmin/client_mgt';
 * Client interface
 */
 $route['client'] = "dashclient/home";
+$route['client/edit_profile'] = "dashclient/edit_profile";
+$route['client/chg_pw'] = "dashclient/chg_pw";
+
 
 /**
 *Authentication

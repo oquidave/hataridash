@@ -80,6 +80,11 @@ class Clients_model extends CI_Model {
 		return $q->result();
 	}
 
+	public function insert_record($table, $data)
+	{
+		$this->db->insert($table, $data);
+	}
+
 	public function get_records($table, $field, $val)
 	{
 		$q = $this->db->get_where($table, array($field=>$val));
