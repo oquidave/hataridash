@@ -114,10 +114,12 @@ function process_add_acc_form () {
 function validate_user_profile_form () {
 	var validator = new FormValidator('edit_client_user_profile', 
 		[{
-			name: 'full_names', 
+			name: 'full_names',
+			display: 'Full Names',
 			rules: 'required'
 		}, {
-			name: 'company', 
+			name: 'company',
+			display: 'Your company or organization name', 
 			rules: 'required'
 		}, {
 			name: 'phone', 

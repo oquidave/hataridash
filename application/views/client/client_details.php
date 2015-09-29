@@ -15,7 +15,7 @@
 
 				<!-- profile tab -->
 				<div class="row tab-pane active" id="profile">
-					<h2>Edit your Account details</h2>
+					<h2 style="padding-left: 15px">Edit your Account details</h2>
 					<div class="col-md-6">
 						<!-- show some validation errors here --> 
 						<div class="user_profile_edit_errors alert alert-warning" style="display: none"></div>
@@ -41,7 +41,7 @@
 							    placeholder=<?php echo $email; ?> >
 							  </div>
 							  <div class="form-group">
-							    <label for="company">Company</label>
+							    <label for="company">Company name</label>
 							    <input type="text" class="form-control" name="company" id="company" 
 							    placeholder="<?php echo $company; ?>" >
 							  </div>

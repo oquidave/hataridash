@@ -123,7 +123,7 @@ class Dashadmin extends CI_Controller {
 			$this->add_invoice($client_id, $domain, $plan, $amount, $paid_by, $date_paid);
 			//redirect can't work with ajax call
 
-			//#Todo insert client id and user id to the clients_users table 
+			//insert client id and user id to the clients_users table 
 			$table = "client_users";
 			$data = array('user_id' => $user_id,
 			 				'client_id' => $client_id);
