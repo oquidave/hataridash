@@ -7,6 +7,9 @@
 	<!-- validation JS -->
 	<script src="/assets/js/validate.min.js"></script>
 
+	<!-- bootstrap datepicker --> 
+	<script src="/assets/js/bootstrap-datepicker.js"></script>
+
 	<!-- Custom JS -->
 	<script src="/assets/js/dash.js"></script>
 
