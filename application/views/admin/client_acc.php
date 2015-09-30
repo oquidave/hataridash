@@ -15,11 +15,11 @@
 
 				<!-- profile tab -->
 				<div class="tab-pane" id="profile" >
-					<h2>Admin profile</h2>
+					<h2>Client Admin profile</h2>
 					<div class="thumbnail client-admin">
 				      <img src="/assets/img/tom.jpg" alt="User profile">
 				      <div class="caption">
-				        <h3>Admin details</h3>
+				        <h3>Client Admin details</h3>
 				        <ul class="client-admin-details">
 				        	<li>
 								<span class="glyphicon glyphicon-user client-key"></span>
@@ -44,10 +44,11 @@
 				        	</li>
 				        </ul>
 
+				        <!-- de-activate this feature for now 
 				        <p>
-				        <a href="#" class="btn btn-primary" role="button">Send Message</a> 
-				        <a href="#" class="btn btn-danger" role="button">Delete</a>
-				        </p>
+					        <a href="#" class="btn btn-primary" role="button">Send Message</a> 
+					        <a href="#" class="btn btn-danger" role="button">Delete</a>
+				        </p> -->
 				      </div>
 				    </div>
 				</div> <!-- close profile tab -->

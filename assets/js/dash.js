@@ -1,6 +1,6 @@
 //document ready 
 $(document).ready(function () {
-	$('#datepicker').datepicker({
+	$('#date').datepicker({
 	    format: 'yyyy-mm-dd'
 	});  
 });
@@ -107,7 +107,7 @@ function process_add_acc_form () {
 	function(data) {
 		//redirect to account page
 		var client_id = data.client_id;
-		window.location = "/admin/view_acc/" + client_id;
+		window.location.href = "/admin/view_acc/" + client_id;
 	}, 
 	"json"); 
 

@@ -91,15 +91,16 @@ class Clients_model extends CI_Model {
 		return $q->result();
 	}
 
-	public function update_record($table, $id, $data)
+
+	public function update_record($table, $field, $val, $data)
 	{
-		$this->db->where('id', $id);
+		$this->db->where($field, $val);
 		$this->db->update($table, $data);
 	}//close update_record
 
-	public function delete_record($id, $table)
+	public function delete_record($table, $field, $val)
 	{
-		$this->db->where('id', $id); 
+		$this->db->where($field, $val); 
 		$this->db->delete($table);
 
 	}//close delete_record

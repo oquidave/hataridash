@@ -18,9 +18,7 @@ $route['forgot_password'] = 'login/forgot_password';
 *Admin interface 
 */
 $route['admin'] = 'dashadmin/home';
-//$route['support'] = 'dashadmin/support';
 $route['admin/view_acc/:num'] = 'dashadmin/view_acc';
-$route['admin/delete_acc/:num'] = 'dashadmin/delete_acc';
 
 $route['admin/add_acc'] = 'dashadmin/add_acc';
 $route['admin/renew_acc'] = 'dashadmin/renew_acc';

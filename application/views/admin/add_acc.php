@@ -80,7 +80,7 @@
 			  </div> 
 			  <div class="form-group">
 			  	<label for="date">Pick Date</label>
-			  	<input type="text" name="date" class="form-control" id="datepicker" placeholder="Date account is created">
+			  	<input type="text" name="date" class="form-control" id="date" placeholder="Date account is created">
 			  </div>
 		
 		</div>

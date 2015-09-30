@@ -81,7 +81,7 @@ class Dashadmin extends CI_Controller {
 		$this->data['title'] = 'Add client account';
 		if (isset($_POST) && !empty($_POST)){
 			//process the form
-			//Don't print anything bse we're return json data
+			//Don't print anything bse we're return json data otherwise js won't redirect
 			$full_names = $this->input->post('full_names');
 			$company = $this->input->post('company');
 			$email = $this->input->post('email');
@@ -112,14 +112,16 @@ class Dashadmin extends CI_Controller {
 			$user_id = $this->ion_auth->register($identity, $password, $email, $additional_data);
 
 			//register this client 
-			$created_on = "2015-09-19 12:59:44";
+			$created_on = $date;
 			$this->load->model('clients_model');
 			$client_id = $this->clients_model->add_client($company, $domain, 
 				$plan, $acc_status, $created_on);
 
 			//add an invoice
-			$paid_by = 1; //#fix get id of logged user
-			$date_paid  = "2015-09-19 12:59:44";
+			$user = $this->ion_auth->user()->row();
+			$logged_user_id = $user->id;
+			$paid_by = $logged_user_id; 
+			$date_paid  = $date;
 			$this->add_invoice($client_id, $domain, $plan, $amount, $paid_by, $date_paid);
 			//redirect can't work with ajax call
 
@@ -200,7 +202,7 @@ class Dashadmin extends CI_Controller {
 			$plan = $this->input->post('plan');
 			$amount = $this->input->post('amount');
 			$date_paid  = $this->input->post('date');
-			$paid_by = 1; //#fix add id of current user
+			$paid_by = $this->ion_auth->user()->row()->id; 
 			
 			
 			$this->add_invoice($client_id, $domain, $plan, $amount, $paid_by, $date_paid);
@@ -243,19 +245,24 @@ class Dashadmin extends CI_Controller {
 			}
 			#make this account status active
 			$table = "clients";
+			$field = 'id';
+			$val = $client_id;
 			$where_id = $client_id;
 			$d = array('acc_status' => true);
 
-			$this->clients_model->update_record($table, $where_id, $d);
+			$this->clients_model->update_record($table, $field, $val, $d);
 			return true;
 
 		} else if ($action == "de_activate") {
 			if ($this->is_active_acc($client_id)) {
 				# deactivate this client account
 				$table = "clients";
+				$field = 'id';
+				$val = $client_id;
 				$where_id = $client_id;
 				$d = array('acc_status' => false);
-				$this->clients_model->update_record($table, $where_id, $d);
+				
+				$this->clients_model->update_record($table, $field, $val, $d);
 				return true;
 			}
 
@@ -276,15 +283,39 @@ class Dashadmin extends CI_Controller {
 		return false;
 	}//close is_active_acc
 
+	/**
+	*delete client account, client-user mapping and users themselves in the users table
+	**/
 	public function del_acc($client_id)
 	{
-		//#fix when you delete an account, delete associated users too 
-		//like $this->ion_auth->delete_user($id)
-		$id= $client_id;
-		$table = 'clients';
+		//delete this client from the client table 
 		$this->load->model('clients_model');
-		$client = $this->clients_model->delete_record($id, $table);
-	}
+		$table = 'clients';
+		$field = 'id';
+		$val = $client_id;
+		$this->clients_model->delete_record($table, $field, $val);
+
+		//now delete associated users account in client_users table
+		//but first get the associated users
+		$this->load->model('clients_model');
+		$table = 'client_users';
+		$field = 'client_id';
+		$val = $client_id;
+		$client_users_ids = $this->clients_model->get_records($table, $field, $val);
+
+		//delete client_user association
+		$table = 'client_users';
+		$field = 'client_id';
+		$val = $client_id;
+		$this->clients_model->delete_record($table, $field, $val);
+
+		////now remove associated users in users table 
+		foreach ($client_users_ids as $client_users_id) {
+			$user_id = $client_users_id->user_id;
+			$this->ion_auth->delete_user($user_id);
+		}
+
+	}//close del_acc
 
 	public function support()
 	{
@@ -293,6 +324,7 @@ class Dashadmin extends CI_Controller {
 		$this->load->view('admin/support_admin');
 		$this->load->view('includes/footer');
 	}
+
 
 	public function login()
 	{

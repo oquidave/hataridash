@@ -88,13 +88,12 @@ class Dashclient extends CI_Controller {
 		$client_id = $this->session->userdata('client_id');
 		$this->load->model('clients_model');
 		$table = "clients";
-		$where_id = $client_id;
+		$field = 'id';
+		$val = $client_id;
 		$d = array('company' => $company);
-
-		$this->clients_model->update_record($table, $where_id, $d);
-		/*header('Content-Type: application/json');
-			echo json_encode(
-				array('user_id' => $user_id));*/
+		
+		$this->clients_model->update_record($table, $field, $val, $d);
+	
 	}//close edit_profile
 
 	public function chg_pw()
